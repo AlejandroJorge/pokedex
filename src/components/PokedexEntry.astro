@@ -1,0 +1,37 @@
+---
+import PokedexInfo from "./PokedexInfo.astro";
+import PokedexImages from "./PokedexImages.astro";
+import "../css/color-palette.css";
+
+const { pokemon } = Astro.props;
+---
+
+<div id="pokedex-container">
+  <PokedexInfo
+    capitalizedName={pokemon.capitalizedName}
+    stats={pokemon.stats}
+    types={pokemon.types}
+  />
+  <PokedexImages
+    capitalizedName={pokemon.capitalizedName}
+    sprites={pokemon.sprites}
+  />
+</div>
+
+<style>
+  #pokedex-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 70%;
+    margin: 0 auto;
+    background-color: var(--lighter);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 2px 2px var(--darker);
+  }
+  @media (max-width: 1000px) {
+    #pokedex-container {
+      grid-template-columns: 100%;
+    }
+  }
+</style>

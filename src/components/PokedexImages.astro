@@ -1,0 +1,68 @@
+---
+import "../css/color-palette.css";
+const { capitalizedName, sprites } = Astro.props;
+---
+
+<div id="sprites-container">
+  <figure>
+    <img
+      src={sprites.back_default}
+      alt={"Default " + capitalizedName + " facing back"}
+      width="120px"
+      height="120px"
+    />
+    <figcaption>{capitalizedName} on player side</figcaption>
+  </figure>
+  <figure>
+    <img
+      src={sprites.front_default}
+      alt={"Default " + capitalizedName + " facing front"}
+      width="120px"
+      height="120px"
+    />
+    <figcaption>{capitalizedName} on enemy side</figcaption>
+  </figure>
+  <figure>
+    <img
+      src={sprites.back_shiny}
+      alt={"Shiny " + capitalizedName + " facing back"}
+      width="120px"
+      height="120px"
+    />
+    <figcaption>{capitalizedName} (shiny) on player side</figcaption>
+  </figure>
+  <figure>
+    <img
+      src={sprites.front_shiny}
+      alt={"Shiny " + capitalizedName + " facing front"}
+      width="120px"
+      height="120px"
+    />
+    <figcaption>{capitalizedName} (shiny) on enemy side</figcaption>
+  </figure>
+</div>
+
+<style>
+  #sprites-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    padding: 15px auto;
+  }
+  figure {
+    margin: 10px;
+    background-color: var(--light);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 1px 1px var(--dark);
+    color: var(--darkest);
+    font-weight: 700;
+  }
+  @media (max-width: 700px) {
+    #sprites-container {
+      grid-template-columns: auto;
+      grid-template-rows: repeat(4, auto);
+    }
+  }
+</style>

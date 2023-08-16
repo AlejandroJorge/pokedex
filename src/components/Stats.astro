@@ -1,0 +1,58 @@
+---
+import capitalize from "../js/capitalize";
+import { maxStatReference } from "../appconfig";
+import "../css/color-palette.css";
+
+const { stats } = Astro.props;
+---
+
+<div id="stats-container">
+  <h3>Base Stats:</h3>
+  <ul>
+    {
+      stats.map((stat) => {
+        return (
+          <li>
+            <div class="stat-text">
+              <p>{capitalize(stat.stat.name)}</p>
+            </div>
+            <div class="stat-bar-container">
+              <div
+                class="stat-bar"
+                style={
+                  "width: " + (stat.base_stat * 100) / maxStatReference + "%;"
+                }
+              >
+                <span class="dynamic-info">{stat.base_stat}</span>
+              </div>
+            </div>
+          </li>
+        );
+      })
+    }
+  </ul>
+</div>
+
+<style>
+  ul {
+    list-style-type: none;
+  }
+  li {
+    margin-top: 5px;
+  }
+  .stat-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--darkest);
+  }
+  .stat-bar-container {
+    display: flex;
+    border: 2px solid var(--darkest);
+    padding: -2px;
+    margin-right: 10px;
+  }
+  .stat-bar {
+    background-color: var(--darker);
+    color: var(--lightest);
+  }
+</style>

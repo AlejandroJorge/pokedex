@@ -1,3 +1,2 @@
-const amountOfFetchedPokemon = 151;
-
-export default amountOfFetchedPokemon;
+export const amountOfFetchedPokemon = 151;
+export const maxStatReference = 160;

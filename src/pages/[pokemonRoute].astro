@@ -1,7 +1,9 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
+import PokedexEntry from "../components/PokedexEntry.astro";
 import listOfPokemonNames from "../js/listOfPokemonNames";
 import getPokemonByName from "../js/getSinglePokemonByName";
+import capitalize from "../js/capitalize";
 
 export function getStaticPaths() {
   const staticPaths = [];
@@ -15,12 +17,9 @@ export function getStaticPaths() {
 const { pokemonRoute } = Astro.params;
 
 const pokemon = await getPokemonByName(pokemonRoute);
-pokemon.capitalizedName =
-  pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+pokemon.capitalizedName = capitalize(pokemon.name);
 ---
 
 <DefaultLayout title={"Pokedex | " + pokemon.capitalizedName}>
-  <div>
-    <h1>{pokemon.capitalizedName}</h1>
-  </div>
+  <PokedexEntry pokemon={pokemon} />
 </DefaultLayout>
