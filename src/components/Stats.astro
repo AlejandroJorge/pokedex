@@ -2,6 +2,7 @@
 import capitalize from "../js/capitalize";
 import { maxStatReference } from "../appconfig";
 import "../css/color-palette.css";
+import fixKebabCase from "../js/fixKebabCase";
 
 const { stats } = Astro.props;
 ---
@@ -14,7 +15,7 @@ const { stats } = Astro.props;
         return (
           <li>
             <div class="stat-text">
-              <p>{capitalize(stat.stat.name)}</p>
+              <p>{fixKebabCase(capitalize(stat.stat.name))}</p>
             </div>
             <div class="stat-bar-container">
               <div
