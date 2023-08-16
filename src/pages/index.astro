@@ -10,11 +10,13 @@ import allPokemon from "../js/fetchPokemon";
       {
         allPokemon.map((pokemon) => {
           return (
-            <LinkCard
-              name={pokemon.name}
-              link={"./" + pokemon.name}
-              imgSrc={pokemon.sprites.front_default}
-            />
+            <li>
+              <LinkCard
+                name={pokemon.name}
+                link={"./" + pokemon.name}
+                imgSrc={pokemon.sprites.front_default}
+              />
+            </li>
           );
         })
       }
