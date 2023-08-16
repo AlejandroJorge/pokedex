@@ -1,0 +1,26 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import listOfPokemonNames from "../js/listOfPokemonNames";
+import getPokemonByName from "../js/getSinglePokemonByName";
+
+export function getStaticPaths() {
+  const staticPaths = [];
+
+  listOfPokemonNames.forEach((pokemonName) => {
+    staticPaths.push({ params: { pokemonRoute: pokemonName } });
+  });
+  return staticPaths;
+}
+
+const { pokemonRoute } = Astro.params;
+
+const pokemon = await getPokemonByName(pokemonRoute);
+pokemon.capitalizedName =
+  pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+---
+
+<DefaultLayout title={pokemon.capitalizedName}>
+  <div>
+    <h1>{pokemon.capitalizedName}</h1>
+  </div>
+</DefaultLayout>

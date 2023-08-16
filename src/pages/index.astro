@@ -1,0 +1,40 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import LinkCard from "../components/LinkCard.astro";
+import allPokemon from "../js/fetchPokemon";
+---
+
+<DefaultLayout title="Pokedex | Home">
+  <main>
+    <ul>
+      {
+        allPokemon.map((pokemon) => {
+          return (
+            <LinkCard
+              name={pokemon.name}
+              link={"./" + pokemon.name}
+              imgSrc={pokemon.sprites.front_default}
+            />
+          );
+        })
+      }
+    </ul>
+  </main>
+</DefaultLayout>
+
+<style>
+  h1 {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+  }
+</style>

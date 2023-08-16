@@ -1,0 +1,52 @@
+---
+import "../css/color-palette.css";
+---
+
+<header>
+  <div>
+    <a id="link-to-self" href="./">
+      <h1>Pokedex</h1>
+    </a>
+    <p>
+      Powered by <a href="https://www.pokeapi.co">Pokeapi</a>
+    </p>
+  </div>
+</header>
+
+<style>
+  header {
+    background-color: var(--darkest);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 12.5vh;
+    padding: 20px 0;
+  }
+  div {
+    padding: 15px 0;
+    text-align: center;
+  }
+  #link-to-self {
+    text-decoration: none;
+  }
+  h1 {
+    font-size: 72px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    color: var(--lightest);
+    text-shadow: 2px 2px var(--light);
+    transition: 0.3s;
+  }
+  p {
+    font-size: 24px;
+    color: var(--lighter);
+  }
+  p > a {
+    color: var(--dark);
+  }
+  h1:hover {
+    transform: scale(1.2);
+    color: var(--light);
+    text-shadow: 2px 2px var(--darker);
+  }
+</style>

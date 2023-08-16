@@ -1,0 +1,46 @@
+---
+import "../css/color-palette.css";
+
+const { name, link, imgSrc } = Astro.props;
+const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
+---
+
+<a href={link}>
+  <div>
+    <img src={imgSrc} />
+    <p>{capitalizedName}</p>
+  </div>
+</a>
+
+<style>
+  div {
+    margin: 20px;
+    padding: 15px;
+    background-color: var(--lighter);
+    border-radius: 15px;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s;
+    box-shadow: 2px 2px var(--dark);
+  }
+  a {
+    text-decoration: none;
+  }
+  p {
+    color: var(--darkest);
+    text-align: center;
+    font-weight: 800;
+    font-size: 20px;
+    text-shadow: 1px 1px var(--lighter);
+  }
+  div:hover {
+    transform: scale(1.2);
+    background-color: var(--dark);
+    box-shadow: 2px 2px var(--darkest);
+  }
+  div:hover > p {
+    color: var(--lighter);
+    text-shadow: 1px 1px var(--dark);
+  }
+</style>
