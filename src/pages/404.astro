@@ -1,0 +1,31 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+---
+
+<DefaultLayout title="Pokedex | Not found">
+  <div>
+    <h2>Nothing found here</h2>
+    <p><span>Error 404:</span> It seems this article doesn't exist</p>
+  </div>
+</DefaultLayout>
+
+<style>
+  h2 {
+    text-align: center;
+    font-size: 48px;
+    color: var(--darkest);
+    font-weight: 700;
+    text-shadow: 2px 2px var(--dark);
+    margin-bottom: 20px;
+  }
+  p {
+    text-align: center;
+    font-size: 24px;
+    color: var(--dark);
+    font-weight: 400;
+  }
+  span {
+    color: var(--darker);
+    font-weight: 800;
+  }
+</style>
