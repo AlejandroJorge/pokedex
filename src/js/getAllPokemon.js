@@ -1,12 +1,11 @@
-import getPokemonById from "./getSinglePokemonById";
+import getSinglePokemon from "./getSinglePokemon";
 
 async function getAllPokemon(amount) {
   const dataArray = [];
   for (let i = 1; i <= amount; i++) {
-    const data = await getPokemonById(i);
-    dataArray.push(data);
+    dataArray.push(getSinglePokemon(i));
   }
-  return dataArray;
+  return Promise.all(dataArray);
 }
 
 export default getAllPokemon;

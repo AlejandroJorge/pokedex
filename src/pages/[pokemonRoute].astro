@@ -2,8 +2,8 @@
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 import PokedexEntry from "../components/PokedexEntry.astro";
 import listOfPokemonNames from "../js/listOfPokemonNames";
-import getPokemonByName from "../js/getSinglePokemonByName";
 import capitalize from "../js/capitalize";
+import getSinglePokemon from "../js/getSinglePokemon";
 
 export function getStaticPaths() {
   const staticPaths = [];
@@ -16,7 +16,7 @@ export function getStaticPaths() {
 
 const { pokemonRoute } = Astro.params;
 
-const pokemon = await getPokemonByName(pokemonRoute);
+const pokemon = await getSinglePokemon(pokemonRoute);
 pokemon.capitalizedName = capitalize(pokemon.name);
 ---
 
